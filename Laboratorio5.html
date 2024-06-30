@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNAD</title>
+    <style>
+
+    /* Estilos para el contenido principal */
+    .contenido {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0 50px;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    /* Estilos para el logo */
+    .imagen-logo {
+        width: 300px;
+        border-radius: 10px;
+        display: block;
+        margin: auto;
+        transition: width 0.5s;
+    }
+
+    /* Estilos para el título */
+    .titulo {
+        font-family: 'Arial Black', sans-serif;
+        text-align: center;
+        color: #003366;
+        transition: color 0.5s;
+    }
+
+    /* Estilos para el subtítulo */
+    .subtitulo {
+        text-align: center;
+        color: #ff6600;
+        transition: color 0.5s;
+    }
+
+    /* Estilos para los párrafos */
+    .parrafo {
+        text-align: left;
+        margin: 20px 0;
+        transition: color 0.5s;
+    }
+
+    /* Estilos para listas ordenadas y no ordenadas */
+    .lista-ol, .lista-ul {
+        margin: 20px 0;
+        padding: 0 20px;
+        color: #003366;
+        transition: color 0.5s;
+    }
+
+    .lista-ol li, .lista-ul li {
+        margin: 5px 0;
+    }
+
+    /* Estilos para videos */
+    .video {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    /* Estilos para enlaces */
+    .enlace {
+        color: #003366;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+        font-weight: bold;
+        transition: color 0.5s;
+    }
+
+    .enlace:hover {
+        text-decoration: underline;
+    }
+
+    /* Estilos para formularios */
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        transition: background-color 0.5s, border-color 0.5s;
+    }
+
+    .formulario fieldset {
+        border: 1px solid #003366;
+        border-radius: 10px;
+        padding: 20px;
+        transition: border-color 0.5s;
+    }
+
+    .formulario legend {
+        font-weight: bold;
+        color: #003366;
+        transition: color 0.5s;
+    }
+
+    .formulario label {
+        margin: 10px 0;
+        color: #003366;
+        transition: color 0.5s;
+    }
+
+    .formulario input, .formulario textarea, .formulario select {
+        width: 97%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+    }
+
+    .formulario button {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.5s;
+    }
+
+    .formulario button:hover {
+        background-color: #e65c00;
+    }
+
+    /* Estilos para tablas */
+    .tabla-ventas {
+        background-color: #f2f2f2;
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .tabla-ventas th, .tabla-ventas td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .tabla-ventas th {
+        background-color: #003366;
+        color: white;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .tabla-ventas tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .tabla-ventas tr:hover {
+        background-color: #ffcc00;
+    }
+
+    /* Estilos para la configuración */
+    .configuracion {
+        margin: 10px 0;
+    }
+
+    .configuracion label {
+        margin: 100px 10px 60px 50px;
+        transition: color 0.5s;
+    }
+
+    .configuracion select {
+        display: inline-block;
+        padding: 7px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+    }
+
+    /* Estilos para el cuerpo de la página */
+    body {
+        background-color: #f0f4f8;
+        transition: background-color 0.5s, color 0.5s;
+    }   
+    </style>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Nacional Abierta y a Distancia - UNAD</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Sección de configuración -->
+    <div class="configuracion">
+        <!-- Selector de tema de página -->
+        <label for="color-pagina">Selecciona el tema de la página:</label>
+        <select id="color-pagina" onchange="cambiarColorPagina()">
+            <option value="clasico">Clásico</option>
+            <option value="oscuro">Oscuro</option>
+            <option value="colorido">Colorido</option>
+        </select>
+
+        <!-- Selector de tamaño de logo -->
+        <label for="tamano-logo">Selecciona el tamaño del logo:</label>
+        <select id="tamano-logo" onchange="cambiarTamanoLogo()">
+            <option value="pequeno">Pequeño</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+            <option value="muy-grande">Muy Grande</option>
+        </select>
+    </div>
+    
+    <!-- Contenido principal -->
+    <div class="contenido">
+        <!-- Logo de la UNAD -->
+        <img class="imagen-logo" src="https://www.unad.edu.co/images/footer/logo-unad-acreditacion-min.png" alt="Logo UNAD">
+
+        <!-- Título principal -->
+        <h1 class="titulo">Universidad Nacional Abierta y a Distancia - UNAD</h1>
+        <hr>
+
+        <!-- Párrafo introductorio -->
+        <p class="parrafo">La UNAD es una universidad colombiana fundada en 1981 que ofrece programas académicos a distancia. Especializada en educación virtual, permite estudiar de manera flexible y autónoma a través de una plataforma en línea.</p>
+
+        <!-- Subtítulo de servicios disponibles -->
+        <h3 class="subtitulo">Servicios Disponibles</h3>
+
+        <!-- Lista ordenada de servicios -->
+        <ol class="lista-ol">
+            <li>Plataforma de Estudio en Línea</li>
+            <li>Tutoría y Acompañamiento Académico</li>
+            <li>Recursos Educativos Digitales</li>
+            <li>Biblioteca Virtual</li>
+            <li>Planes de Estudio Flexibles</li>
+        </ol>
+
+        <!-- Video de presentación -->
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/382Zu1DxY5s?si=CO0Z5EeacSvzzoyQ"
+            title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <!-- Subtítulo de datos de contacto -->
+        <h3 class="subtitulo">Datos de Contacto</h3>
+
+        <!-- Lista no ordenada de datos de contacto -->
+        <ul class="lista-ul">
+            <li>Contáctanos: 601-3443700</li>
+            <li>Extensión: 2728, 2755, 2748, 2702, 2733, 2731, 2773</li>
+        </ul>
+
+        <!-- Enlace a FUS digital -->
+        <a class="enlace" href="https://rca.unad.edu.co/fus/" target="_blank">Ir a FUS Digital</a>
+
+        <!-- Título del formulario de inscripción -->
+        <h2 class="titulo">Formulario de Inscripción</h2>
+
+        <!-- Formulario de inscripción -->
+        <form class="formulario" method="post" onsubmit="mostrarDatos(); return false;">
+            <!-- Sección de información personal -->
+            <fieldset>
+                <legend>Información Personal</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Escriba su nombre" required name="nombre">
+                <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="fecha_nacimiento" required max="2024-05-02" min="1900-01-01" value="2024-05-02" name="fecha_nacimiento">
+                <label for="cedula">Cédula:</label>
+                <input type="number" id="cedula" required placeholder="Digite su cédula" name="cedula">
+                <label for="ciudad">Ciudad:</label>
+                <select name="ciudad" id="ciudad" required>
+                    <option value="">-</option>
+                    <option value="Manizales">Manizales</option>
+                    <option value="Bogotá">Bogotá</option>
+                    <option value="Medellín">Medellín</option>
+                    <option value="Cartagena">Cartagena</option>
+                    <option value="Cali">Cali</option>
+                </select>
+            </fieldset>
+
+            <!-- Sección de información de contacto -->
+            <fieldset>
+                <legend>Información de Contacto</legend>
+                <label for="direccion">Dirección:</label>
+                <textarea id="direccion" cols="50" rows="1" name="direccion"></textarea>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" required placeholder="Digite su teléfono" name="telefono">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" required placeholder="Ingresar Email" name="email">
+            </fieldset>
+
+            <!-- Sección para adjuntar documento PQR -->
+            <fieldset>
+                <legend>Adjuntar Documento PQR</legend>
+                <label for="cv">Subir documento PQR:</label>
+                <input type="file" id="cv" required accept="image/*" name="cv">
+            </fieldset>
+
+            <!-- Sección para seleccionar tipo de PQR -->
+            <fieldset>
+                <legend>Tipo de PQR</legend>
+                <input type="radio" id="petición" name="PQR" value="P" required>
+                <label for="petición">Petición</label>
+                <input type="radio" id="queja" name="PQR" value="Q" required>
+                <label for="queja">Queja</label>
+                <input type="radio" id="reclamo" name="PQR" value="R" required>
+                <label for="reclamo">Reclamo</label>
+            </fieldset>
+
+            <!-- Botón de enviar formulario -->
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!-- Título de la tabla de ventas -->
+        <h2 class="titulo">Tabla de Ventas</h2>
+
+        <!-- Tabla de ventas -->
+        <table class="tabla-ventas">
+            <tr>
+                <th>Mes</th>
+                <th>Ventas (COP)</th>
+            </tr>
+            <tr>
+                <td>Enero</td>
+                <td>$10.000.000</td>
+            </tr>
+            <tr>
+                <td>Febrero</td>
+                <td>$32.000.000</td>
+            </tr>
+            <tr>
+                <td>Marzo</td>
+                <td>$26.000.000</td>
+            </tr>
+            <tr>
+                <td>Abril</td>
+                <td>$45.000.000</td>
+            </tr>
+            <tr>
+                <td>Mayo</td>
+                <td>$5.000.000</td>
+            </tr>
+            <tr>
+                <td>Junio</td>
+                <td>$50.000.000</td>
+            </tr>
+            <tr>
+                <td>Julio</td>
+                <td>$22.000.000</td>
+            </tr>
+            <tr>
+                <td>Agosto</td>
+                <td>$15.000.000</td>
+            </tr>
+            <tr>
+                <td>Septiembre</td>
+                <td>$9.000.000</td>
+            </tr>
+            <tr>
+                <td>Octubre</td>
+                <td>$55.000.000</td>
+            </tr>
+            <tr>
+                <td>Noviembre</td>
+                <td>$100.000.000</td>
+            </tr>
+            <tr>
+                <td>Diciembre</td>
+                <td>$250.000.000</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+    // Función para mostrar los datos del formulario
+    function mostrarDatos() {
+        var nombre = document.getElementById("nombre").value;
+        var fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+        var cedula = document.getElementById("cedula").value;
+        var ciudad = document.getElementById("ciudad").value;
+        var direccion = document.getElementById("direccion").value;
+        var telefono = document.getElementById("telefono").value;
+        var email = document.getElementById("email").value;
+        var pqr = document.querySelector('input[name="PQR"]:checked').value;
+
+        // Mostrar los datos recopilados en un cuadro de alerta
+        alert(
+            "Nombre: " + nombre + "\n" +
+            "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+            "Cédula: " + cedula + "\n" +
+            "Ciudad: " + ciudad + "\n" +
+            "Dirección: " + direccion + "\n" +
+            "Teléfono: " + telefono + "\n" +
+            "Correo Electrónico: " + email + "\n" +
+            "Tipo de PQR: " + pqr
+        );
+    }
+
+    // Función para cambiar el color de la página
+    function cambiarColorPagina() {
+        var colorSeleccionado = document.getElementById("color-pagina").value;
+        var body = document.body;
+        var contenido = document.querySelector(".contenido");
+        var configuracion = document.querySelector(".configuracion");
+        var titulos = document.querySelectorAll(".titulo");
+        var subtitulos = document.querySelectorAll(".subtitulo");
+        var parrafos = document.querySelectorAll(".parrafo");
+        var listas = document.querySelectorAll(".lista-ol, .lista-ul");
+        var enlaces = document.querySelectorAll(".enlace");
+        var formulario = document.querySelector(".formulario");
+        var fieldsets = document.querySelectorAll("fieldset");
+        var legends = document.querySelectorAll("legend");
+        var labels = document.querySelectorAll("label");
+        var inputs = document.querySelectorAll("input, textarea, select");
+        var tabla = document.querySelector(".tabla-ventas");
+        var tablaHeaders = document.querySelectorAll(".tabla-ventas th");
+        var tablaRows = document.querySelectorAll(".tabla-ventas tr");
+
+        // Colores para el tema oscuro
+        if (colorSeleccionado === "oscuro") {
+            var fondoOscuro = "#0D0D0D"; // Fondo oscuro
+            var fondoContenido = "#010D00"; // Fondo de contenido oscuro
+            var fondoFormulario = "#16213E"; // Fondo del formulario oscuro
+            var textoPrincipal = "#EAEAEA"; // Texto principal blanco
+            var textoSecundario = "#F2C9D1"; // Texto secundario
+            var textoTitulos = "#F0A500"; // Color de los títulos
+
+            // Aplicar estilos de tema oscuro
+            body.style.backgroundColor = fondoOscuro;
+            body.style.color = textoPrincipal;
+            contenido.style.backgroundColor = fondoContenido;
+            contenido.style.color = textoPrincipal;
+            configuracion.style.color = textoPrincipal;
+            titulos.forEach(titulo => titulo.style.color = textoTitulos);
+            subtitulos.forEach(subtitulo => subtitulo.style.color = textoSecundario);
+            parrafos.forEach(parrafo => parrafo.style.color = textoPrincipal);
+            listas.forEach(lista => lista.style.color = textoPrincipal);
+            enlaces.forEach(enlace => enlace.style.color = textoSecundario);
+            formulario.style.backgroundColor = fondoFormulario;
+            formulario.style.borderColor = textoSecundario;
+            fieldsets.forEach(fieldset => fieldset.style.borderColor = textoSecundario);
+            legends.forEach(legend => legend.style.color = textoSecundario);
+            labels.forEach(label => label.style.color = textoSecundario);
+            inputs.forEach(input => {
+                input.style.backgroundColor = fondoContenido;
+                input.style.borderColor = textoSecundario;
+                input.style.color = textoPrincipal;
+            });
+            tabla.style.backgroundColor = fondoContenido;
+            tablaHeaders.forEach(th => {
+                th.style.backgroundColor = textoTitulos;
+                th.style.color = fondoContenido;
+            });
+            tablaRows.forEach((tr, index) => {
+                if (index % 2 === 0) {
+                    tr.style.backgroundColor = "#16213E"; // Color de fila intercalado 1
+                } else {
+                    tr.style.backgroundColor = "#010D00"; // Color de fila intercalado 2
+                }
+                tr.style.color = textoPrincipal;
+                tr.addEventListener("mouseover", function () {
+                    tr.style.backgroundColor = "black"; // Color de fila al pasar el mouse
+                });
+                tr.addEventListener("mouseout", function () {
+                    if (index % 2 === 0) {
+                        tr.style.backgroundColor = "#16213E"; // Restablecer color de fila intercalado 1
+                    } else {
+                        tr.style.backgroundColor = "#010D00"; // Restablecer color de fila intercalado 2
+                    }
+                });
+            });
+        }
+        // Colores para el tema colorido
+        else if (colorSeleccionado === "colorido") {
+            body.style.backgroundColor = "#ffefd5"; // Fondo amarillo claro
+            body.style.color = "#000"; // Texto negro
+            contenido.style.backgroundColor = "#ffdab9"; // Fondo naranja claro
+            contenido.style.color = "#000"; // Texto negro
+            configuracion.style.color = "#000"; // Texto negro
+            titulos.forEach(titulo => titulo.style.color = "#dc143c"); // Color de títulos naranja 
+            subtitulos.forEach(subtitulo => subtitulo.style.color = "#dc143c"); // Color de subtítulos amarillo 
+            parrafos.forEach(parrafo => parrafo.style.color = "#000"); //  negro 
+            listas.forEach(lista => lista.style.color = "#dc143c"); //  negro 
+            enlaces.forEach(enlace => enlace.style.color = "#dc143c"); // Color de enlaces violeta 
+            formulario.style.backgroundColor = "#ffe4b5"; // Fondo amarillo
+            formulario.style.borderColor = "#dc143c"; // Borde naranja 
+            fieldsets.forEach(fieldset => fieldset.style.borderColor = "#dc143c"); // Borde naranja 
+            legends.forEach(legend => legend.style.color = "#dc143c"); // Color de leyenda naranja 
+            labels.forEach(label => label.style.color = "#dc143c"); // Color de etiquetas naranja 
+            inputs.forEach(input => {
+                input.style.backgroundColor = "#fff5ee"; // Fondo amarillo claro
+                input.style.borderColor = "#dc143c"; // Borde naranja 
+                input.style.color = "#000"; // Texto negro suave
+            });
+            tabla.style.backgroundColor = "#ffefd5"; // Fondo rosa 
+            tablaHeaders.forEach(th => {
+                th.style.backgroundColor = "#dc143c"; // Violeta intenso
+                th.style.color = "#fff"; // Texto blanco
+            });
+            tablaRows.forEach(tr => {
+                tr.style.backgroundColor = ""; // Restablecer cualquier estilo aplicado anteriormente
+                tr.style.color = "#333333"; // Texto negro suave
+                tr.addEventListener("mouseover", function () {
+                    tr.style.backgroundColor = "#ffd700"; // Naranja al pasar el mouse
+                });
+                tr.addEventListener("mouseout", function () {
+                    tr.style.backgroundColor = ""; // Restablecer color original al salir el mouse
+                });
+            });
+        }
+        // Colores para el tema clásico o por defecto
+        else {
+            body.style.backgroundColor = "#f0f4f8"; // Fondo gris azulado claro
+            body.style.color = "#000"; // Texto negro
+            contenido.style.backgroundColor = "#ffffff"; // Fondo blanco
+            contenido.style.color = "#000"; // Texto negro
+            configuracion.style.color = "#000"; // Texto negro
+            titulos.forEach(titulo => titulo.style.color = "#003366"); // Azul oscuro
+            subtitulos.forEach(subtitulo => subtitulo.style.color = "#ff6600"); // Naranja rojizo
+            parrafos.forEach(parrafo => parrafo.style.color = "#000"); // Texto negro
+            listas.forEach(lista => lista.style.color = "#003366"); // Azul oscuro
+            enlaces.forEach(enlace => enlace.style.color = "#003366"); // Azul oscuro
+            formulario.style.backgroundColor = "#f9f9f9"; // Fondo gris claro
+            formulario.style.borderColor = "#ccc"; // Borde gris claro
+            fieldsets.forEach(fieldset => fieldset.style.borderColor = "#003366"); // Borde azul oscuro
+            legends.forEach(legend => legend.style.color = "#003366"); // Color  azul oscuro
+            labels.forEach(label => label.style.color = "#003366"); // Color  azul oscuro
+            inputs.forEach(input => {
+                input.style.backgroundColor = "#fff"; // Fondo blanco
+                input.style.borderColor = "#ccc"; // Borde gris claro
+                input.style.color = "#000"; // Texto negro
+            });
+            tabla.style.backgroundColor = "#f2f2f2"; // Fondo gris claro
+            tablaHeaders.forEach(th => {
+                th.style.backgroundColor = "#003366"; // Azul oscuro
+                th.style.color = "#fff"; // Texto blanco
+            });
+            tablaRows.forEach(tr => {
+                tr.style.backgroundColor = ""; // Restablecer cualquier estilo aplicado anteriormente
+                tr.style.color = "#000"; // Texto negro
+                tr.addEventListener("mouseover", function () {
+                    tr.style.backgroundColor = "#ffd700"; // Amarillo al pasar el mouse
+                });
+                tr.addEventListener("mouseout", function () {
+                    tr.style.backgroundColor = ""; // Restablecer color original al salir el mouse
+                });
+            });
+        }
+    }
+
+    // Función para cambiar el tamaño del logo
+    function cambiarTamanoLogo() {
+        var tamanoSeleccionado = document.getElementById("tamano-logo").value;
+        var logo = document.querySelector(".imagen-logo");
+
+        // Cambiar el tamaño del logo según la opción seleccionada
+        if (tamanoSeleccionado === "pequeno") {
+            logo.style.width = "100px"; // Tamaño pequeño (100px)
+        } else if (tamanoSeleccionado === "mediano") {
+            logo.style.width = "200px"; // Tamaño mediano (200px)
+        } else if (tamanoSeleccionado === "grande") {
+            logo.style.width = "300px"; // Tamaño grande (300px)
+        } else {
+            logo.style.width = "400px"; // Tamaño extra grande (400px)
+        }
+    }
+</script>
+</body>
+</html>
